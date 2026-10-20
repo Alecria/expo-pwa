@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Expo PWA",
+    "slug": "expo-pwa",
+    "scheme": "expopwa",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./public/favicon.svg"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
