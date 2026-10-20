@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "Alecria Expo PWA",
+  "short_name": "Alecria",
+  "description": "Aplicação web progressiva do projeto Alecria.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6fb",
+  "theme_color": "#243b75",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

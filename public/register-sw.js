@@ -1,0 +1,7 @@
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(function (error) {
+      console.warn("Não foi possível registrar o service worker:", error);
+    });
+  });
+}
