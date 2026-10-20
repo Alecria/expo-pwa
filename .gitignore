@@ -1,0 +1,11 @@
+node_modules/
+.expo/
+dist/
+web-build/
+coverage/
+*.log
+
+# Local environment variables (keep the example template tracked)
+.env
+.env.*
+!.env.example
