@@ -11,6 +11,8 @@ Aplicação inicial com Expo Router, Expo Web e configuração de Progressive We
 
 ```bash
 npm install
+cp .env.example .env
+# Preencha .env com os dados do app Web no Firebase Console
 npm run web
 ```
 
@@ -41,12 +43,22 @@ O service worker não intercepta métodos diferentes de GET, requisições de ou
 - Layout responsivo para telas estreitas e largas.
 - Dados simulados isolados em `src/data/mockContacts.ts`.
 
-**Importante:** esta etapa usa somente estado em memória. Alterações são perdidas ao recarregar a página; nenhum registro é enviado ou persistido em servidor. A integração Firebase e a persistência real não fazem parte desta etapa.
+**Importante:** a interface ainda usa somente estado em memória. Alterações são perdidas ao recarregar a página; nenhum registro é enviado ou persistido em servidor.
 
-## Próximas etapas
+## Etapa 4 — Preparação do Firebase
 
-A etapa seguinte configurará o Firebase com variáveis de ambiente e estrutura centralizada de inicialização. O CRUD real será conectado apenas na etapa dedicada a essa implementação.
+- SDK modular Firebase instalado em `package.json`.
+- Inicialização centralizada em `src/lib/firebase.ts`.
+- Configuração por variáveis `EXPO_PUBLIC_FIREBASE_*`, com modelo em `.env.example`.
+- Exporta `db`, `firebaseApp`, `isFirebaseConfigured` e o nome da coleção `contatos`.
+- A aplicação continua podendo abrir sem configuração Firebase durante o desenvolvimento da interface.
+
+Para usar, copie `.env.example` para `.env` e substitua os valores pelos dados do aplicativo Web em Firebase Console → Project settings → Your apps. Reinicie o servidor Expo depois de editar as variáveis.
+
+**Segurança:** as variáveis `EXPO_PUBLIC_*` ficam acessíveis no bundle do navegador e não devem conter segredos. Não foram adicionadas credenciais reais nem regras abertas do Firestore. Configure as regras do Firestore no Firebase Console antes de usar dados reais; regras de teste abertas não são apropriadas para produção.
+
+A coleção prevista é `contatos`, com os campos `nome`, `email`, `createdAt` e `updatedAt`. O CRUD real ainda não foi implementado nesta etapa.
 
 ## Validação PWA
 
-Para testar instalação e funcionamento offline, execute a build e sirva o conteúdo por HTTPS (ou use localhost em desenvolvimento). Confira Manifest e Service Worker no painel Application do navegador. O comportamento de build e instalação ainda deve ser verificado em ambiente de execução.
+Para testar instalação e funcionamento offline, execute a build e sirva o conteúdo por HTTPS (ou use localhost em desenvolvimento). Confira Manifest e Service Worker no painel Application do navegador. O comportamento de build, integração Firebase e instalação ainda precisa ser verificado em ambiente de execução.
